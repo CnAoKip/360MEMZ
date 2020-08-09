@@ -7,3 +7,5 @@
 > 4.taskbar-任务栏小剧场（未开源）  
 > 5.StopWorking-“停止工作”程序，已开源在*https://github.com/CnAoKip/StopWorking*  
 > 6.NyanConsole-cmd高仿MEMZ（未开源）  
+## 系统要求
+由于调用了werapi和dwm系列函数，此程序需要在Windows 7及以上运行，当然，你可以改写并完善360MEMZ的系统兼容性。
