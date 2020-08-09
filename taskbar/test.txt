@@ -1,0 +1,7 @@
+6
+1 360不安全卫士 你的电脑已感染360MEMZ，是否立刻下载360清除？ 3000 icons\360.ico
+2 360MEMZ 什么东西?我那么帅气怎么能杀我？ 2000 icons\360MEMZ.ico
+3 任务管理器TSK 正在终止360.exe 1500 taskmgr.exe
+4 错误 360主动防御：发现病毒C:\Windows\system32\taskmgr.exe,是否立刻清除？ 2000 Error 
+5 Windows 由于360淦我亲儿子，系统即将蓝屏 1500 winver.exe
+1 360不安全卫士 建议删除taskmgr.exe 2000 icons\360.ico
