@@ -1,0 +1,4 @@
+#include "360MEMZ.h"
+
+IDR_360MEMZ ICON "360MEMZ_small.ico"
+
