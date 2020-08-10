@@ -1,10 +1,10 @@
 #include "360MEMZ.h"
 
-const wchar_t *tips = L"��ĵ��Ա�\"360MEMZ�ĸ���\"ϫ��!!!\n\
-��������һ������ȫ������Ч�����顣\n\
-�������ʱ�ر�����������ǿ�ƹػ��ⲻ��Ե�������κ��𺦡�\n\n\
-���Է���van��ɣ� \n\
-���������ߣ�bվ@�����_gt428";
+const wchar_t *tips = L"你的电脑被\"360MEMZ的复仇\"汐了!!!\n\
+但是这是一个“安全”的特效程序组。\n\
+你可以随时关闭它，除蓝屏强制关机外不会对电脑造成任何损害。\n\n\
+所以放心van♂吧！ \n\
+程序组作者：b站@旮沓曼_gt428";
 
 HCRYPTPROV prov;
 
@@ -117,7 +117,7 @@ LRESULT CALLBACK msgBoxHook(int nCode, WPARAM wParam, LPARAM lParam) {
 
 DWORD WINAPI Box1(LPVOID para){
 	HHOOK hook = SetWindowsHookEx(WH_CBT, msgBoxHook, 0, GetCurrentThreadId());
-	MessageBox(NULL, L"�����Խ��벡��!", L"360MEMZ", MB_ICONERROR);
+	MessageBox(NULL, L"三连以进入病毒!", L"360MEMZ", MB_ICONERROR);
 	UnhookWindowsHookEx(hook);
 	return 0;
 }
@@ -132,8 +132,8 @@ DWORD WINAPI VideoThread(LPVOID lpParameter){
 }
 
 int main(){
-	if((!IsWin7OrLater())||(IsUserAnAdmin())){
-		MessageBox(NULL, L"�˳�����ҪWindows 7 ��������ӵ�й���ԱȨ�޲������У�", L"360MEMZ", MB_ICONERROR);
+	if((!IsWin7OrLater())||(!IsUserAnAdmin())){
+		MessageBox(NULL, L"此程序需要Windows 7 及以上且拥有管理员权限才能运行！", L"360MEMZ", MB_ICONERROR);
 	}
 	scrh = GetSystemMetrics(SM_CXSCREEN), scrw = GetSystemMetrics(SM_CYSCREEN);
 	setlocale(LC_ALL, "chs");
