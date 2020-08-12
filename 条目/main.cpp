@@ -43,7 +43,7 @@ MCIERROR openSound(LPWSTR path, LPWSTR alias, LPWSTR type) {
 MCIERROR resetSound(LPWSTR alias) {
 	MCI_SEEK_PARMS params;
 	memset(&params, 0, sizeof(params));
-	return mciSendCommand(mciGetDeviceID(alias), MCI_SEEK, MCI_SEEK_TO_START, (DWORD)&params);
+	return mciSendCommand(mciGetDeviceID(alias), MCI_SEEK, MCI_SEEK_TO_START, (unsigned __int64)&params);
 }
 
 MCIERROR playSound(LPWSTR alias, BOOL async) {
