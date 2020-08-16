@@ -12,6 +12,8 @@
 #include <stdio.h> 
 #include <string.h>
 #include <locale.h>
+//For  IsUserAnAdmin()
+#include <ShlObj.h>
 #define IDR_360MEMZ 0x1001
 void Kill();
 DWORD WINAPI CreateTerminater(LPVOID lpParameter);

