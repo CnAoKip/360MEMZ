@@ -1,2 +1,2 @@
-## StopWorking备注
-此项目已开源至*https://github.com/CnAoKip/StopWorking*，请确保程序运行时此程序在可执行文件同目录下
+## StopWorking澶囨敞
+姝ら」鐩凡寮�婧愯嚦https://github.com/CnAoKip/StopWorking  锛岃纭繚绋嬪簭杩愯鏃舵绋嬪簭鍦ㄥ彲鎵ц鏂囦欢鍚岀洰褰曚笅

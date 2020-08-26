@@ -1,2 +1,2 @@
-## Cmd_MEMZ±¸×¢
-´Ë³ÌÐòÉÐÎ´¿ªÔ´£¬²¿·ÖMIDI¿ØÖÆÀ´×ÔÓÚgithub¿ªÔ´´úÂë¡£
+## Cmd_MEMZå¤‡æ³¨
+æ­¤ç¨‹åºå°šæœªå¼€æºï¼Œéƒ¨åˆ†MIDIæŽ§åˆ¶æ¥è‡ªäºŽgithubå¼€æºä»£ç ã€‚
